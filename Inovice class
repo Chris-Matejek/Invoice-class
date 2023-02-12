@@ -1,0 +1,67 @@
+package com.mycompany.mavenproject1;
+import java.io.PrintStream;
+import java.util.Scanner;
+/**
+ *
+ * @author Paul
+ */
+public class InvoiceClass {
+    private String partNumber;
+    private String partDescription;
+    private int quantity; 
+    private double priceperItem;
+    private double amount;
+    public void setPartNumber(String number)
+{           
+        partNumber = number;            
+}       
+public String getPartNumber()
+{           
+        return partNumber;
+}   
+public void setPartDescription (String description)
+{           
+        partDescription = description;
+}       
+    public String getPartDescription(){         
+        return partDescription;         
+    }   
+    public void setQuantity(int count){         
+        if(count > 0)
+            quantity = 0;           
+    }       
+    public int getQuantity(){           
+        return quantity;
+    }   
+    public void setPrice (double price){            
+        double priceperItem;
+        if(price > 0.0)
+            priceperItem = price;           
+        if(price < 0.0)
+            priceperItem = 0.0; 
+    }       
+    public double getPrice(){           
+        double priceperitem = 0;
+        return priceperitem;
+    }   
+    public double getInvoiceAmount(){           
+         amount = getQuantity() * getPrice();           
+         return amount;
+    }       
+}
+
+import java.Scanner;
+public class InvoiceTest {
+public static void main(String[] args) {        
+    int quantity;
+    double priceperItem;
+    double amount;       
+    Invoice invoice1;     
+    invoice1 = new Invoice("1234","Hammer",-5, -39.75);
+    Scanner keyboard = new Scanner (System.in);     
+    PrintStream printf = System.out.printf( "Part number: %s\n", invoice1.getPartNumber());
+    System.out.printf( "Part Description: %s\n", invoice1.getPartDescription());
+    System.out.printf( "Quantity: %s\n", invoice1.getQuantity());
+    System.out.printf( "Price: %s\n", invoice1.getPrice());
+ }
+}
